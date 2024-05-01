@@ -15,9 +15,9 @@ export default function SolanaAttendanceDepositDappFeature() {
   return publicKey ? (
     <div>
       <AppHero
-        title="SolanaAttendanceDepositDapp"
+        title="Solana Attendance Deposit Dapp"
         subtitle={
-          'Initialize the course app by clicking the "Become a course manager" button.'
+          'Initialize the course app by clicking the button below.'
         }
       >
         <p className="mb-6">

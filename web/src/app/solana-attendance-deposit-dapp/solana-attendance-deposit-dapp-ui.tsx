@@ -11,7 +11,7 @@ export function SolanaAttendanceDepositDappCreate() {
         onClick={() => initialize.mutateAsync(Keypair.generate())}
         disabled={initialize.isPending}
       >
-        Become a course manager{initialize.isPending && '...'}
+        Manage Course{initialize.isPending && '...'}
       </button>
     </div>
   );
