@@ -80,7 +80,7 @@ export function useSolanaAttendanceDepositDappProgramCourseAccount() {
         .createCourse(
           args.name,
           new BN(args.deposit),
-          args.lock_until,
+          new BN(args.lock_until),
           args.num_of_lessons
         )
         .accounts({
@@ -88,7 +88,6 @@ export function useSolanaAttendanceDepositDappProgramCourseAccount() {
           manager: provider.wallet.publicKey,
           authority: provider.wallet.publicKey,
         })
-        .signers([])
         .rpc();
     },
     onSuccess: (signature) => {
