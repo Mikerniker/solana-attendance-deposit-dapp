@@ -1,8 +1,30 @@
-# solana-attendance-deposit-dapp
+# Solana Attendance Deposit Dapp
+
+## Overview
+
+This is a Solana program that allows users to deposit funds into a program account and then withdraw them after meeting two conditions:
+- Payment will be returned after a lock-in period, specified by the course manager (ex. after the last day of classes).
+- Student has to check-in within a given timeframe and have 100% attendance.
+
+The program is designed to be used as a way to incentivize attendance at events, such as courses, hackathons or meetups.
+
+## Components
+**Smart Contract for Deposit and Refund**
+- Manages the logic for depositing USDC and processes refunds.
 
 This project is generated with the [create-solana-dapp](https://github.com/solana-developers/create-solana-dapp) generator.
 
 [Anchor Source](https://github.com/superical/solana-attendance-deposit)
+
+## Interaction Flow
+1. Course Manager ➡️ Creates courses ➡️ Specifies required deposit and number of lessons in course
+2. Students ➡️ Register courses ➡️ Deposit Funds (SPL tokens)
+3. Course Manager ➡️ Creates lessons and sets a deadline for logging attendance
+4. Students log their attendance for every lesson before the deadline
+5. If students miss the deadline, students are marked absent
+6. When the number of lessons created equals the number of lessons specified when creating the course, the course is considered completed.
+7. Students can withdraw their deposit after the course is completed if all of their attendances are checked.
+
 
 ## Getting Started
 
