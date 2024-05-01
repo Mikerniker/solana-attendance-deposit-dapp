@@ -27,9 +27,16 @@ export function useSolanaAttendanceDepositDappProgram() {
     queryFn: () => connection.getParsedAccountInfo(programId),
   });
 
-  const greet = useMutation({
-    mutationKey: ['solanaAttendanceDepositDapp', 'greet', { cluster }],
-    mutationFn: (keypair: Keypair) => program.methods.greet().rpc(),
+  const initialize = useMutation({
+    mutationKey: ['solanaAttendanceDepositDapp', 'initialize', { cluster }],
+    mutationFn: (keypair: Keypair) =>
+      program.methods
+        .initialize()
+        .accounts({
+          authority: keypair.publicKey,
+        })
+        .signers([keypair])
+        .rpc(),
     onSuccess: (signature) => {
       transactionToast(signature);
     },
@@ -40,6 +47,6 @@ export function useSolanaAttendanceDepositDappProgram() {
     program,
     programId,
     getProgramAccount,
-    greet,
+    initialize,
   };
 }

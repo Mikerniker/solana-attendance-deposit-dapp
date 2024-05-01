@@ -16,7 +16,9 @@ export default function SolanaAttendanceDepositDappFeature() {
     <div>
       <AppHero
         title="SolanaAttendanceDepositDapp"
-        subtitle={'Run the program by clicking the "Run program" button.'}
+        subtitle={
+          'Initialize the course app by clicking the "Become a course manager" button.'
+        }
       >
         <p className="mb-6">
           <ExplorerLink

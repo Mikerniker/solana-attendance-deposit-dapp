@@ -2,16 +2,18 @@ import { Keypair } from '@solana/web3.js';
 import { useSolanaAttendanceDepositDappProgram } from './solana-attendance-deposit-dapp-data-access';
 
 export function SolanaAttendanceDepositDappCreate() {
-  const { greet } = useSolanaAttendanceDepositDappProgram();
+  const { initialize } = useSolanaAttendanceDepositDappProgram();
 
   return (
-    <button
-      className="btn btn-xs lg:btn-md btn-primary"
-      onClick={() => greet.mutateAsync(Keypair.generate())}
-      disabled={greet.isPending}
-    >
-      Run program{greet.isPending && '...'}
-    </button>
+    <div>
+      <button
+        className="btn btn-xs lg:btn-md btn-primary"
+        onClick={() => initialize.mutateAsync(Keypair.generate())}
+        disabled={initialize.isPending}
+      >
+        Become a course manager{initialize.isPending && '...'}
+      </button>
+    </div>
   );
 }
 
