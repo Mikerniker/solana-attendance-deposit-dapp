@@ -27,9 +27,9 @@ export function UiLayout({
         <div className="flex-1">
           <Link className="btn btn-ghost normal-case text-xl" to="/">
             <img
-              className="h-4 md:h-6"
+              className="h-14 md:h-14"
               alt="Solana Logo"
-              src="/assets/solana-logo.png"
+              src="/assets/deposit_logo.png"
             />
           </Link>
           <ul className="menu menu-horizontal px-1 space-x-2">
