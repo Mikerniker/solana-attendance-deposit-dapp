@@ -14,9 +14,17 @@ const links: { label: string; href: string }[] = [
 export default function DashboardFeature() {
   return (
     <div>
-      <AppHero title="gm" subtitle="Say hi to your new Solana dApp." />
-      <div className="max-w-xl mx-auto py-6 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-2">
+      <AppHero title="Solana Attendance Deposit Dapp!"  subtitle="Secure Your Spot, Secure Your Success!" />
+      
+      <div className="max-w-xl mx-auto sm:px-6 lg:px-8 text-center">
+     
+        <img
+        alt="Cashback Logo"
+        src="/assets/deposit_logo.png"
+        />
+     
+     
+        {/* <div className="space-y-2">
           <p>Here are some helpful links to get you started.</p>
           {links.map((link, index) => (
             <div key={index}>
@@ -30,7 +38,7 @@ export default function DashboardFeature() {
               </a>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
