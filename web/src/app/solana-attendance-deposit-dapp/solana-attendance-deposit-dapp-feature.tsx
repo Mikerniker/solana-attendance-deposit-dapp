@@ -6,6 +6,7 @@ import { useSolanaAttendanceDepositDappProgram } from './solana-attendance-depos
 import {
   SolanaAttendanceDepositDappCreate,
   SolanaAttendanceDepositDappProgram,
+  SolanaAttendanceDepositDappCourseManage,
 } from './solana-attendance-deposit-dapp-ui';
 
 export default function SolanaAttendanceDepositDappFeature() {
@@ -29,6 +30,7 @@ export default function SolanaAttendanceDepositDappFeature() {
         <SolanaAttendanceDepositDappCreate />
       </AppHero>
       <SolanaAttendanceDepositDappProgram />
+      <SolanaAttendanceDepositDappCourseManage />
     </div>
   ) : (
     <div className="max-w-4xl mx-auto">
