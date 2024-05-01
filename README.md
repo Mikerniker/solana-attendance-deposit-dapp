@@ -2,6 +2,8 @@
 
 This project is generated with the [create-solana-dapp](https://github.com/solana-developers/create-solana-dapp) generator.
 
+[Anchor Source](https://github.com/superical/solana-attendance-deposit)
+
 ## Getting Started
 
 ### Prerequisites
