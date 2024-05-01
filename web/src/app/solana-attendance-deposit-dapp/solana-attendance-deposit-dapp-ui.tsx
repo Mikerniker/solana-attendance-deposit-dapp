@@ -7,7 +7,7 @@ export function SolanaAttendanceDepositDappCreate() {
   return (
     <div>
       <button
-        className="btn btn-xs lg:btn-md btn-primary"
+        className="btn btn-xs lg:btn-md btn-primary bg-amber-100 text-slate-600"
         onClick={() => initialize.mutateAsync(Keypair.generate())}
         disabled={initialize.isPending}
       >

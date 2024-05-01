@@ -14,7 +14,7 @@ const links: { label: string; href: string }[] = [
 export default function DashboardFeature() {
   return (
     <div>
-      <AppHero title="Solana Attendance Deposit Dapp!"  subtitle="Secure Your Spot, Secure Your Success!" />
+      <AppHero title="Solana Attendance Deposit"  subtitle="Secure Your Spot, Secure Your Success!" />
       
       <div className="max-w-xl mx-auto sm:px-6 lg:px-8 text-center">
      

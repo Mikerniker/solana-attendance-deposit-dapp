@@ -28,7 +28,7 @@ export function UiLayout({
           <Link className="btn btn-ghost normal-case text-xl" to="/">
             <img
               className="h-14 md:h-14"
-              alt="Solana Logo"
+              alt="Deposit Logo"
               src="/assets/deposit_logo.png"
             />
           </Link>
@@ -148,16 +148,16 @@ export function AppHero({
   subtitle: ReactNode;
 }) {
   return (
-    <div className="hero py-[64px]">
+    <div className="hero pt-[64px]">
       <div className="hero-content text-center">
         <div className="max-w-2xl">
           {typeof title === 'string' ? (
-            <h1 className="text-5xl font-bold">{title}</h1>
+            <h1 className="text-5xl font-sans text-amber-100 tracking-wide font-bold">{title}</h1>
           ) : (
             title
           )}
           {typeof subtitle === 'string' ? (
-            <p className="py-6">{subtitle}</p>
+            <h2 className="text-2xl py-3  text-amber-100">{subtitle}</h2>
           ) : (
             subtitle
           )}
