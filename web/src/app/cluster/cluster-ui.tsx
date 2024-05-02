@@ -5,6 +5,8 @@ import { ReactNode, useState } from 'react';
 import { AppModal } from '../ui/ui-layout';
 import { ClusterNetwork, useCluster } from './cluster-data-access';
 import { Connection } from '@solana/web3.js';
+import { RxOpenInNewWindow } from "react-icons/rx";
+
 
 export function ExplorerLink({
   path,
@@ -24,6 +26,27 @@ export function ExplorerLink({
       className={className ? className : `link font-mono`}
     >
       {label}
+    </a>
+  );
+}
+export function ExplorerButton({
+  path,
+  label,
+  className,
+}: {
+  path: string;
+  label: string;
+  className?: string;
+}) {
+  const { getExplorerUrl } = useCluster();
+  return (
+    <a
+      href={getExplorerUrl(path)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className ? className : `link font-mono`}
+    >
+      <RxOpenInNewWindow className="scale-150 text-amber-100 hover:text-violet-400"/>
     </a>
   );
 }

@@ -9,13 +9,13 @@ export function SolanaAttendanceDepositDappCreate() {
   const { initialize, accounts } = useSolanaAttendanceDepositDappProgram();
 
   return (
-    <div>
+    <div className="flex flex-row justify-center items-center gap-3">
       <button
         className="btn btn-xs lg:btn-md btn-primary bg-amber-100 text-slate-600"
         onClick={() => initialize.mutateAsync(Keypair.generate())}
         disabled={initialize.isPending || accounts.data?.length === 1}
       >
-        Manage Course{initialize.isPending && '...'}
+        Initialize Course{initialize.isPending && '...'}
       </button>
     </div>
   );
@@ -37,18 +37,18 @@ export function SolanaAttendanceDepositDappProgram() {
       </div>
     );
   }
-  return (
-    <div className={'space-y-6'}>
-      <pre>{JSON.stringify(getProgramAccount.data.value, null, 2)}</pre>
-    </div>
-  );
+  // return (
+  //   <div className={'space-y-6'}>
+  //     <pre>{JSON.stringify(getProgramAccount.data.value, null, 2)}</pre>
+  //   </div>
+  // );
 }
 
 export function SolanaAttendanceDepositDappCourseManage() {
   const { accounts } = useSolanaAttendanceDepositDappProgram();
 
   return (
-    <div className="mt-6 p-6 border-2 border-gray-300">
+    <div className="my-2 p-6 poppins text-amber-100 border-gray-300 rounded-xl bg-slate-800 bg-opacity-50 shadow-2xl shadow ">
       <h2 className="text-center text-2xl">Course Manager</h2>
 
       {accounts.isLoading ? (
@@ -69,12 +69,12 @@ export function SolanaAttendanceDepositDappCourseList() {
   // console.log('courseAccounts', courseAccounts.data);
 
   return (
-    <div className="mt-6 mb-12 p-6 border-2 border-gray-300">
-      <h2 className="mb-6 text-center text-2xl">Course List</h2>
-      <div>
+    <div className="my-12 pb-20 bg-opacity-50 shadow shadow-2xl poppins text-amber-100 rounded-xl">
+      <h2 className="mb-6 text-center text-3xl">Course List</h2>
+      <div className="grid grid-cols-3 col-auto gap-6">
         {courseAccounts.data?.map((data) => {
           return (
-            <div className="mb-6">
+            <div className="shadow shadow-2xl border p-4 rounded-lg mb-6">
               <p>Address: {data.publicKey.toString()}</p>
               <p>Manager Address: {data.account.manager.toString()}</p>
               <p>Course Name: {data.account.name}</p>
