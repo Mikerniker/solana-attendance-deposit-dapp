@@ -17,9 +17,9 @@ const SolanaAttendanceDepositDappFeature = lazy(
 );
 const links: { label: string; path: string }[] = [
   { label: 'Account', path: '/account' },
-  { label: 'Clusters', path: '/clusters' },
+  // { label: 'Clusters', path: '/clusters' },
   {
-    label: 'SolanaAttendanceDepositDapp Program',
+    label: 'Programs',
     path: '/solana-attendance-deposit-dapp',
   },
 ];
