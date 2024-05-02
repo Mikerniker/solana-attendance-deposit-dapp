@@ -7,6 +7,7 @@ import {
   SolanaAttendanceDepositDappCreate,
   SolanaAttendanceDepositDappProgram,
   SolanaAttendanceDepositDappCourseManage,
+  SolanaAttendanceDepositDappCourseList,
 } from './solana-attendance-deposit-dapp-ui';
 
 export default function SolanaAttendanceDepositDappFeature() {
@@ -17,9 +18,7 @@ export default function SolanaAttendanceDepositDappFeature() {
     <div>
       <AppHero
         title="Solana Attendance Deposit Dapp"
-        subtitle={
-          'Initialize the course app by clicking the button below.'
-        }
+        subtitle={'Initialize the course app by clicking the button below.'}
       >
         <p className="mb-6">
           <ExplorerLink
@@ -31,6 +30,7 @@ export default function SolanaAttendanceDepositDappFeature() {
       </AppHero>
       <SolanaAttendanceDepositDappProgram />
       <SolanaAttendanceDepositDappCourseManage />
+      <SolanaAttendanceDepositDappCourseList />
     </div>
   ) : (
     <div className="max-w-4xl mx-auto">
