@@ -37,11 +37,6 @@ export type SolanaAttendanceDepositDapp = {
           "isSigner": true
         },
         {
-          "name": "authority",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
           "name": "systemProgram",
           "isMut": false,
           "isSigner": false
@@ -413,11 +408,6 @@ export const IDL: SolanaAttendanceDepositDapp = {
           "name": "manager",
           "isMut": true,
           "isSigner": true
-        },
-        {
-          "name": "authority",
-          "isMut": false,
-          "isSigner": false
         },
         {
           "name": "systemProgram",
