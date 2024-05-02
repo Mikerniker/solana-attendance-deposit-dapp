@@ -63,6 +63,11 @@ export function useSolanaAttendanceDepositDappProgramCourseAccount() {
   const provider = useAnchorProvider();
   const { program } = useSolanaAttendanceDepositDappProgram();
 
+  const courseAccounts = useQuery({
+    queryKey: ['solanaAttendanceDepositDapp', 'course_accounts', { cluster }],
+    queryFn: () => program.account.course.all(),
+  });
+
   const createCourse = useMutation({
     mutationKey: ['solanaAttendanceDepositDapp', 'create_course', { cluster }],
     mutationFn: (args: {
@@ -96,6 +101,7 @@ export function useSolanaAttendanceDepositDappProgramCourseAccount() {
   });
 
   return {
+    courseAccounts,
     createCourse,
   };
 }

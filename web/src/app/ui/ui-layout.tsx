@@ -38,7 +38,11 @@ export function UiLayout({
             {links.map(({ label, path }) => (
               <li key={path}>
                 <Link
-                  className={pathname.startsWith(path) ? 'py-2 px-4 border-b-2' : 'py-2 px-4 hover:border-b-2'}
+                  className={
+                    pathname.startsWith(path)
+                      ? 'py-2 px-4 border-b-2'
+                      : 'py-2 px-4 hover:border-b-2'
+                  }
                   to={path}
                 >
                   {label}
@@ -147,7 +151,9 @@ export function AppHero({
       <div className="hero-content text-center">
         <div className="max-w-2xl">
           {typeof title === 'string' ? (
-            <h1 className="text-5xl font-sans text-amber-100 tracking-wide font-bold">{title}</h1>
+            <h1 className="text-5xl font-sans text-amber-100 tracking-wide font-bold">
+              {title}
+            </h1>
           ) : (
             title
           )}
