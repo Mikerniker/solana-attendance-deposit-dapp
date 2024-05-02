@@ -66,7 +66,7 @@ export function SolanaAttendanceDepositDappCourseList() {
   const { courseAccounts } =
     useSolanaAttendanceDepositDappProgramCourseAccount();
 
-  console.log('courseAccounts', courseAccounts.data);
+  // console.log('courseAccounts', courseAccounts.data);
 
   return (
     <div className="mt-6 mb-12 p-6 border-2 border-gray-300">
