@@ -25,7 +25,6 @@ pub struct NewCourse<'info> {
     pub course: Account<'info, Course>,
     #[account(mut)]
     pub manager: Signer<'info>,
-    pub authority: Account<'info, CourseManager>,
     pub system_program: Program<'info, System>,
 }
 

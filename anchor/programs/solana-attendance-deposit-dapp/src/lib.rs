@@ -27,11 +27,11 @@ pub mod solana_attendance_deposit_dapp {
         lock_until: u64,
         num_of_lessons: u8,
     ) -> Result<()> {
-        require_keys_eq!(
-            ctx.accounts.manager.key(),
-            ctx.accounts.authority.manager.key(),
-            ErrorCode::UnauthorizedAccess
-        );
+        // require_keys_eq!(
+        //     ctx.accounts.manager.key(),
+        //     ctx.accounts.authority.manager.key(),
+        //     ErrorCode::UnauthorizedAccess
+        // );
 
         let course = &mut ctx.accounts.course;
         course.new(
