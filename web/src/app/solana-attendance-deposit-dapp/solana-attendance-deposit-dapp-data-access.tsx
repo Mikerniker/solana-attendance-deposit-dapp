@@ -2,7 +2,7 @@ import {
   programId,
   SolanaAttendanceDepositDappIDL,
 } from '@solana-attendance-deposit-dapp/anchor';
-import { Program } from '@coral-xyz/anchor';
+import { Program, web3, utils, BN } from '@coral-xyz/anchor';
 import { useConnection } from '@solana/wallet-adapter-react';
 import { Keypair } from '@solana/web3.js';
 import { useMutation, useQuery } from '@tanstack/react-query';
@@ -27,6 +27,11 @@ export function useSolanaAttendanceDepositDappProgram() {
     queryFn: () => connection.getParsedAccountInfo(programId),
   });
 
+  const accounts = useQuery({
+    queryKey: ['solanaAttendanceDepositDapp', 'accounts', { cluster }],
+    queryFn: () => program.provider.connection.getProgramAccounts(programId),
+  });
+
   const initialize = useMutation({
     mutationKey: ['solanaAttendanceDepositDapp', 'initialize', { cluster }],
     mutationFn: (keypair: Keypair) =>
@@ -44,9 +49,54 @@ export function useSolanaAttendanceDepositDappProgram() {
   });
 
   return {
+    accounts,
     program,
     programId,
     getProgramAccount,
     initialize,
+  };
+}
+
+export function useSolanaAttendanceDepositDappProgramCourseAccount() {
+  const { cluster } = useCluster();
+  const transactionToast = useTransactionToast();
+  const provider = useAnchorProvider();
+  const { program } = useSolanaAttendanceDepositDappProgram();
+
+  const createCourse = useMutation({
+    mutationKey: ['solanaAttendanceDepositDapp', 'create_course', { cluster }],
+    mutationFn: (args: {
+      name: string;
+      deposit: number;
+      lock_until: number;
+      num_of_lessons: number;
+    }) => {
+      const [coursePDA] = web3.PublicKey.findProgramAddressSync(
+        [Buffer.from(utils.bytes.utf8.encode('course'))],
+        programId
+      );
+
+      return program.methods
+        .createCourse(
+          args.name,
+          new BN(args.deposit),
+          new BN(args.lock_until),
+          args.num_of_lessons
+        )
+        .accounts({
+          course: coursePDA,
+          manager: provider.wallet.publicKey,
+          authority: provider.wallet.publicKey,
+        })
+        .rpc();
+    },
+    onSuccess: (signature) => {
+      transactionToast(signature);
+    },
+    onError: () => toast.error('Failed to run program'),
+  });
+
+  return {
+    createCourse,
   };
 }
