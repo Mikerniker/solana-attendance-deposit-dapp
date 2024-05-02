@@ -72,7 +72,7 @@ export function useSolanaAttendanceDepositDappProgramCourseAccount() {
       num_of_lessons: number;
     }) => {
       const [coursePDA] = web3.PublicKey.findProgramAddressSync(
-        [Buffer.from(utils.bytes.utf8.encode('course'))],
+        [Buffer.from(utils.bytes.utf8.encode(args.name))],
         programId
       );
 
@@ -86,7 +86,6 @@ export function useSolanaAttendanceDepositDappProgramCourseAccount() {
         .accounts({
           course: coursePDA,
           manager: provider.wallet.publicKey,
-          authority: provider.wallet.publicKey,
         })
         .rpc();
     },
